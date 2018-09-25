@@ -1,4 +1,4 @@
-from string_manipulations import *
+import String_Manipulation
 
 function_cat_list = [
     ['String Manipulation', "Parenthesis Checker", "Reverse Words", 
@@ -56,11 +56,9 @@ def userSelection():
     
 def printSubMenu(user_selection):
     i=0
-    print(user_selection)
     for sub_cat in range(len((function_cat_list[user_selection-1]))-1):
         i+=1
         print((i) , ' ' ,  function_cat_list[user_selection-1][i])    
-    print('menu done printing')
 
     invalid_choice = True
     while invalid_choice:
@@ -80,18 +78,22 @@ def printSubMenu(user_selection):
             print('\nPlease select a valid input.')        
 
     #print(user_selection)#DEBUG - Remove. 
-    
     print('\nYou selected - ' + function_cat_list[user_selection - 1][val])
     return val
 
+from String_Manipulation import *
 def executeFunction(category, function):
     function_name = function_cat_list[category-1][function]
     category_name = function_cat_list[category-1][0]
 
     print('Executing ' + function_name)
-    print('From Category: ' + category_name)
+    print('From Category: ' + category_name + '\n')
 
     function_name = function_name.replace(' ', "_")
     category_name = category_name.replace(' ',"_")
 
-    function_to_call = getattr()
+    #Assuming module String_Manipulation with method function:
+    #String_Manipulation.Reverse_Words()
+    function_to_call = getattr(category_name, function_name)
+    #method_to_call = getattr(foo, 'bar')
+    function_to_call()
