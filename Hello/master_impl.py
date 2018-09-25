@@ -1,8 +1,10 @@
+#Coding challenges from 
+
 from menu_functions import *
+from functions_impl import *
 
-function_cat_list = ['String Manipulation', 'Arrays', 'Linked Lists', 'Stack/Queue', 'Tree', 'Recursion', 'Hashing', 'etc.']
-
-
-printMainMenu(function_cat_list)
-userSelection(function_cat_list)
+printMainMenu()
+choice = userSelection()
+function = printSubMenu(choice)
+executeFunction(function):
 
