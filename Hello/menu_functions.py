@@ -1,11 +1,11 @@
 from string_manipulations import *
 
 function_cat_list = [
-    ['String Manipulation', "Parenthesis Checker", "Reverse words in a given string", 
-    "Permutations of a given string", "Longest Palindrome in a String", "Recursively remove all adjacent duplicates", 
+    ['String Manipulation', "Parenthesis Checker", "Reverse Words", 
+    "Permutations Of String", "Longest Palindrome String", "Recursively Remove Adjacent Duplicates", 
     "Check if string is rotated by two places", "Roman Number to Integer", "Anagram", "Longest Common Substring", 
-    "Remove Duplicates", "Form a Palindrome", "Longest Distinct Characters in the string", "Implement Atoi", 
-    "Implement strstr", "Longest Common Prefix", "Subarray with given sum"], 
+    "Remove Duplicates", "Form Palindrome", "Longest Distinct Characters String", "Implement Atoi", 
+    "Implement strstr", "Longest Common Prefix", "Subarray With Sum"], 
 
     ['Arrays', "Finding middle element in a linked list", "Reverse a linked list", "Rotate a Linked List", 
     "Reverse a Linked List in groups of given size", "Detect Loop in linked list", "Remove loop in Linked List", 
@@ -53,17 +53,7 @@ def userSelection():
     
     print('\nYou selected - ' + function_cat_list[val-1][0])
     return val
-
-# def listToDict(function_cat_list):
-#     i=0
-#     select_dict_options = {}
-
-#     for cat in function_cat_list:
-#         select_dict_options[i+1] = function_cat_list[i]
-#         i+=1
-        
-#     print(select_dict_options)
-
+    
 def printSubMenu(user_selection):
     i=0
     print(user_selection)
@@ -93,3 +83,15 @@ def printSubMenu(user_selection):
     
     print('\nYou selected - ' + function_cat_list[user_selection - 1][val])
     return val
+
+def executeFunction(category, function):
+    function_name = function_cat_list[category-1][function]
+    category_name = function_cat_list[category-1][0]
+
+    print('Executing ' + function_name)
+    print('From Category: ' + category_name)
+
+    function_name = function_name.replace(' ', "_")
+    category_name = category_name.replace(' ',"_")
+
+    function_to_call = getattr()
