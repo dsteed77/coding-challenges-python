@@ -1,4 +1,11 @@
 import String_Manipulation
+import Arrays
+import Linked_Lists
+import Stack_Queue
+import Tree
+import Recursion
+import Hashing
+import etc
 
 function_cat_list = [
     ['String Manipulation', "Parenthesis Checker", "Reverse Words", 
@@ -17,7 +24,7 @@ function_cat_list = [
     ['Linked Lists', "Next larger element", "Queue using two Stacks", "Stack using two queues", "Get minimum element from stack", 
     "LRU Cache", "Circular tour", "First non-repeating character in a stream", "Rotten Oranges"],
     
-    ['Stack/Queue'], 
+    ['Stack Queue'], 
     ['Tree'], 
     ['Recursion'],
     ['Hashing'],
@@ -81,7 +88,6 @@ def printSubMenu(user_selection):
     print('\nYou selected - ' + function_cat_list[user_selection - 1][val])
     return val
 
-from String_Manipulation import *
 def executeFunction(category, function):
     function_name = function_cat_list[category-1][function]
     category_name = function_cat_list[category-1][0]
@@ -91,9 +97,18 @@ def executeFunction(category, function):
 
     function_name = function_name.replace(' ', "_")
     category_name = category_name.replace(' ',"_")
+    function_available = False
 
     #Assuming module String_Manipulation with method function:
     #String_Manipulation.Reverse_Words()
-    function_to_call = getattr(category_name, function_name)
+    if category_name == String_Manipulation:    
+        function_to_call = getattr(String_Manipulation, function_name)
+        function_to_call()
+        function_available = True
+    else:
+        while not function_available:
+            print('It appears that this function is not available. Please choose a different option.')
+            val = int(printSubMenu(category))
+            print(function_cat_list[category-1][val])
+            #if function_name == function_cat_list[category-1][val]
     #method_to_call = getattr(foo, 'bar')
-    function_to_call()
