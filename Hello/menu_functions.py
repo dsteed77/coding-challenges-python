@@ -95,20 +95,24 @@ def executeFunction(category, function):
     print('Executing ' + function_name)
     print('From Category: ' + category_name + '\n')
 
-    function_name = function_name.replace(' ', "_")
-    category_name = category_name.replace(' ',"_")
+    function_mod = function_name.replace(' ', '_')
+    category_name = category_name.replace(' ','_')
     function_available = False
 
     #Assuming module String_Manipulation with method function:
     #String_Manipulation.Reverse_Words()
     if category_name == String_Manipulation:    
-        function_to_call = getattr(String_Manipulation, function_name)
+        function_to_call = getattr(String_Manipulation, function_mod)
         function_to_call()
         function_available = True
     else:
+        print('It appears that this function is not available. Please choose a different option.')
         while not function_available:
-            print('It appears that this function is not available. Please choose a different option.')
             val = int(printSubMenu(category))
+            print('>>>>>>>>>>>>>')
             print(function_cat_list[category-1][val])
-            #if function_name == function_cat_list[category-1][val]
+            print(function_name)
+            if function_name == function_cat_list[category-1][val]:
+                function_available = True
+
     #method_to_call = getattr(foo, 'bar')
